@@ -27,233 +27,297 @@
     <title>Instagram Photo Feed with Bootstrap</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <div class="container">
-      <nav class="navbar navbar-expand bg-light">
-        <div class="container">
-          <a class="navbar-brand d-flex align-items-center text-dark" href="#">
-            <i class="fa-brands fa-instagram"></i>
-            <span>Instagram</span>
+    <!-- Nav Bar -->
+    <nav class="navbar d-flex bg-light">
+      <!-- Navbar Brand Title -->
+      <div class="p-2 flex-grow-1">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <i class="fa-brands fa-instagram" width="30" height="30"></i>
+            Instagram
           </a>
-          <div class="col-6"></div>
-
-          <div class="col-3">
-            <button
-              type="button"
-              class="btn bg-success text-light float-end"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              data-bs-whatever="@mdo"
-            >
-              Create a new post
-            </button>
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Create a new post
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="mb-3">
-                        <label for="message-text" class="col-form-label"
-                          ><b>Caption</b>:</label
-                        >
-                        <textarea
-                          class="form-control"
-                          id="message-text"
-                          placeholder="Add the caption of your post here"
-                        ></textarea>
-                      </div>
-                      <div class="mb-3">
-                        <button class="btn btn-light">
-                          <i class="fa-solid fa-camera"></i>
-                        </button>
-                        <button class="btn btn-light">
-                          <i class="fa-solid fa-location-dot"></i>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn btn-success">
-                      Publish
-                    </button>
-                  </div>
+        </div>
+      </div>
+      <!-- Create new post Button -->
+      <div class="p-2">
+        <button
+          type="button"
+          class="btn bg-success text-white"
+          data-bs-toggle="modal"
+          data-bs-target="#create_post"
+        >
+          Create a new post
+        </button>
+        <!-- Modal -->
+        <div class="modal" id="create_post">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Create a new post</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="caption">Caption:</label>
+                  <textarea
+                    class="form-control"
+                    rows="3"
+                    id="caption"
+                    name="text"
+                    placeholder="Add the caption of your post here"
+                  ></textarea>
+                  <button type="button" class="btn btn-light mt-2">
+                    <i class="fa-solid fa-camera"></i>
+                  </button>
+                  <button type="button" class="btn btn-light mt-2">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </button>
                 </div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn bg-success text-white">
+                  Publish
+                </button>
               </div>
             </div>
           </div>
-          <div class="col-1">
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle float-start"
-                type="button"
-                id="dropdownMenuButton2"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fa-solid fa-gear"></i>
-              </button>
-              <ul
-                class="dropdown-menu dropdown-menu-light"
-                aria-labelledby="dropdownMenuButton2"
-              >
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="#">Accesibility</a></li>
-                <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item text-danger" href="#">Log out</a>
-                </li>
-              </ul>
+        </div>
+      </div>
+
+      <!-- Dropdown menu -->
+      <div class="p-2">
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fa-solid fa-gear"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Accessibility</a></li>
+            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
+            <div class="dropdown-divider"></div>
+            <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid mt-3">
+      <!-- Tab Pills -->
+      <ul class="nav nav-pills justify-content-center">
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            type="submit"
+            id="pills-feed-tab"
+            data-bs-target="#pills-feed"
+            data-bs-toggle="pill"
+          >
+            <i class="fa-solid fa-table-cells"></i>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link active"
+            type="submit"
+            id="pills-photo-tab"
+            data-bs-target="#pills-photo"
+            data-bs-toggle="pill"
+          >
+            <i class="fa-solid fa-square"></i>
+          </button>
+        </li>
+      </ul>
+      <!-- Tab Panes -->
+      <div class="tab-content">
+        <!-- Feed tab -->
+        <div
+          class="tab-pane fade"
+          id="pills-feed"
+          role="tabpanel"
+          aria-labelledby="pills-feed-tab"
+        >
+          <div class="container-fluid g-1 mt-4">
+            <div class="row g-1 mt-4">
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-1.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-2.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-3.jpg"
+                  alt="image1"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid g-1 mt-4">
+            <div class="row g-1 mt-4">
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-1.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-2.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-3.jpg"
+                  alt="image1"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid g-1 mt-4">
+            <div class="row g-1 mt-4">
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-1.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-2.jpg"
+                  alt="image1"
+                />
+              </div>
+              <div class="col-4">
+                <img
+                  class="img-fluid"
+                  src="./images/image-3.jpg"
+                  alt="image1"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </nav>
-
-      <!-- Switch Grid and Feed view -->
-
-      <!-- Feed layout -->
-
-      <div class="container d-flex justify-content-center">
-        <ul class="nav nav-pills mt-5" id="pills-tab" role="tablist">
-          <li class="nav-item">
-            <a
-              class="nav-link btn btn-secondary"
-              id="pills-home-tab"
-              data-toggle="pill"
-              href="grid.html"
-              role="tab"
-              aria-controls="pills-home"
-              aria-selected="true"
+        <!-- Grid tab -->
+        <div
+          class="tab-pane fade active show"
+          id="pills-photo"
+          role="tabpanel"
+          aria-labelledby="pills-photo-tab"
+        >
+          <div class="container-fluid g-1 mt-4">
+            <div
+            class="card mx-auto rounded"
+            style="max-width: 50%; margin-bottom: 20px"
+          >
+            <div
+              class="card-header d-flex justify-content-between align-items-center bg-transparent"
             >
-              <i class="fas fa-th fa-xs"></i>
-            </a>
-            <!-- Content for the first tab goes here -->
-          </li>
-          <li class="nav-item ml-3">
-            <a
-              class="nav-link btn btn-secondary"
-              id="pills-profile-tab"
-              data-toggle="pill"
-              href="index.html"
-              role="tab"
-              aria-controls="pills-profile"
-              aria-selected="false"
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-1.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
+          </div>
+    
+          <div
+            class="card mx-auto rounded"
+            style="max-width: 50%; margin-bottom: 20px"
+          >
+            <div
+              class="card-header d-flex justify-content-between align-items-center bg-transparent"
             >
-              <i class="fas fa-square fa-xs"></i>
-            </a>
-            <!-- Content for the second tab goes here -->
-          </li>
-        </ul>
-      </div>
-
-      <!-- Image post feed -->
-      <div
-        class="card mx-auto rounded"
-        style="max-width: 50%; margin-bottom: 20px"
-      >
-        <div
-          class="card-header d-flex justify-content-between align-items-center bg-transparent"
-        >
-          <div>
-            <h5 class="card-title">Card Title</h5>
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-2.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
           </div>
-          <div>
-            <p class="mb-0">08/26</p>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <img src="images/image-1.jpg" class="img-fluid" alt="Sample Image" />
-        </div>
-        <div class="card-footer bg-transparent">
-          <h6>204 Likes</h6>
-          <p class="card-text">Some text in the footer.</p>
-        </div>
-      </div>
-
-      <div
-        class="card mx-auto rounded"
-        style="max-width: 50%; margin-bottom: 20px"
-      >
-        <div
-          class="card-header d-flex justify-content-between align-items-center bg-transparent"
-        >
-          <div>
-            <h5 class="card-title">Card Title</h5>
-          </div>
-          <div>
-            <p class="mb-0">08/26</p>
+    
+          <div
+            class="card mx-auto rounded"
+            style="max-width: 50%; margin-bottom: 20px"
+          >
+            <div
+              class="card-header d-flex justify-content-between align-items-center bg-transparent"
+            >
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-3.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
           </div>
         </div>
-        <div class="card-body p-0">
-          <img src="images/image-2.jpg" class="img-fluid" alt="Sample Image" />
-        </div>
-        <div class="card-footer bg-transparent">
-          <h6>204 Likes</h6>
-          <p class="card-text">Some text in the footer.</p>
-        </div>
-      </div>
-
-      <div
-        class="card mx-auto rounded"
-        style="max-width: 50%; margin-bottom: 20px"
-      >
-        <div
-          class="card-header d-flex justify-content-between align-items-center bg-transparent"
-        >
-          <div>
-            <h5 class="card-title">Card Title</h5>
+    
           </div>
-          <div>
-            <p class="mb-0">08/26</p>
-          </div>
-        </div>
-        <div class="card-body p-0">
-          <img src="images/image-3.jpg" class="img-fluid" alt="Sample Image" />
-        </div>
-        <div class="card-footer bg-transparent">
-          <h6>204 Likes</h6>
-          <p class="card-text">Some text in the footer.</p>
         </div>
       </div>
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

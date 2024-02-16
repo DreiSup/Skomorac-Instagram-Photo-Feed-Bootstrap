@@ -1,333 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-
-    <!-- Awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="./styles.css" />
-
-    <title>Instagram Photo Feed with Bootstrap</title>
-  </head>
-  <body>
-    <!-- Nav Bar -->
-    <nav class="navbar d-flex bg-light">
-      <!-- Navbar Brand Title -->
-      <div class="p-2 flex-grow-1">
-        <div class="container-fluid">
-          <a class="navbar-brand text-dark" href="#">
-            <i class="fa-brands fa-instagram" width="30" height="30"></i>
-            Instagram
-          </a>
-        </div>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Instagram Photo Feed with Bootstrap</title>
+</head>
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar d-flex bg-light">
+    <!-- Navbar Brand Title -->
+    <div class="p-2 flex-grow-1">
+      <div class="container-fluid">
+        <a class="navbar-brand text-dark" href="#">
+          <i class="fa-brands fa-instagram" width="30" height="30"></i>
+          Instagram
+        </a>
       </div>
-      <!-- Create new post Button -->
-      <div class="p-2">
-        <button
-          type="button"
-          class="btn bg-success text-white"
-          data-bs-toggle="modal"
-          data-bs-target="#create_post"
-        >
-          Create a new post
-        </button>
-        <!-- Modal -->
-        <div class="modal" id="create_post">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Create a new post</h4>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
-              <!-- Modal body -->
-              <div class="modal-body">
-                <div class="form-group">
-                  <label for="caption">Caption:</label>
-                  <textarea
-                    class="form-control"
-                    rows="3"
-                    id="caption"
-                    name="text"
-                    placeholder="Add the caption of your post here"
-                  ></textarea>
-                  <button type="button" class="btn btn-light mt-2">
-                    <i class="fa-solid fa-camera"></i>
-                  </button>
-                  <button type="button" class="btn btn-light mt-2">
-                    <i class="fa-solid fa-location-dot"></i>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  data-bs-dismiss="modal"
-                >
-                  Close
+    </div>
+    <!-- Create new post Button -->
+    <div class="p-2">
+      <button type="button" class="btn bg-success text-white" data-bs-toggle="modal" data-bs-target="#create_post">
+        Create a new post
+      </button>
+      <!-- Modal -->
+      <div class="modal" id="create_post">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Create a new post</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="caption">
+                  Caption:
+                </label>
+                <textarea class="form-control" rows="3" id="caption" name="text"
+                  placeholder="Add the caption of your post here"></textarea>
+                <button type="button" class="btn btn-light mt-2">
+                  <i class="fa-solid fa-camera"></i>
                 </button>
-                <button type="button" class="btn bg-success text-white">
-                  Publish
+                <button type="button" class="btn btn-light mt-2">
+                  <i class="fa-solid fa-location-dot"></i>
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dropdown menu -->
-      <div class="p-2">
-        <div class="btn-group">
-          <button
-            type="button"
-            class="btn btn-secondary dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fa-solid fa-gear"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><a class="dropdown-item" href="#">Accessibility</a></li>
-            <li><a class="dropdown-item" href="#">Privacy and Data</a></li>
-            <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item text-danger" href="#">Sign Out</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container-fluid mt-3">
-      <!-- Tab Pills -->
-      <ul class="nav nav-pills justify-content-center">
-        <li class="nav-item">
-          <button
-            class="nav-link"
-            type="submit"
-            id="pills-feed-tab"
-            data-bs-target="#pills-feed"
-            data-bs-toggle="pill"
-          >
-            <i class="fa-solid fa-table-cells"></i>
-          </button>
-        </li>
-        <li class="nav-item">
-          <button
-            class="nav-link active"
-            type="submit"
-            id="pills-photo-tab"
-            data-bs-target="#pills-photo"
-            data-bs-toggle="pill"
-          >
-            <i class="fa-solid fa-square"></i>
-          </button>
-        </li>
-      </ul>
-      <!-- Tab Panes -->
-      <div class="tab-content">
-        <!-- Feed tab -->
-        <div
-          class="tab-pane fade"
-          id="pills-feed"
-          role="tabpanel"
-          aria-labelledby="pills-feed-tab"
-        >
-          <div class="container-fluid g-1 mt-4">
-            <div class="row g-1 mt-4">
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-1.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-2.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-3.jpg"
-                  alt="image1"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid g-1 mt-4">
-            <div class="row g-1 mt-4">
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-1.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-2.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-3.jpg"
-                  alt="image1"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid g-1 mt-4">
-            <div class="row g-1 mt-4">
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-1.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-2.jpg"
-                  alt="image1"
-                />
-              </div>
-              <div class="col-4">
-                <img
-                  class="img-fluid"
-                  src="./images/image-3.jpg"
-                  alt="image1"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Grid tab -->
-        <div
-          class="tab-pane fade active show"
-          id="pills-photo"
-          role="tabpanel"
-          aria-labelledby="pills-photo-tab"
-        >
-          <div class="container-fluid g-1 mt-4">
-            <div
-              class="card mx-auto rounded"
-              style="max-width: 50%; margin-bottom: 20px"
-            >
-              <div
-                class="card-header d-flex justify-content-between align-items-center bg-transparent"
-              >
-                <div>
-                  <h5 class="card-title">Card Title</h5>
-                </div>
-                <div>
-                  <p class="mb-0">08/26</p>
-                </div>
-              </div>
-              <div class="card-body p-0">
-                <img
-                  src="images/image-1.jpg"
-                  class="img-fluid"
-                  alt="Sample Image"
-                />
-              </div>
-              <div class="card-footer bg-transparent">
-                <h6>204 Likes</h6>
-                <p class="card-text">Some text in the footer.</p>
-              </div>
-            </div>
-
-            <div
-              class="card mx-auto rounded"
-              style="max-width: 50%; margin-bottom: 20px"
-            >
-              <div
-                class="card-header d-flex justify-content-between align-items-center bg-transparent"
-              >
-                <div>
-                  <h5 class="card-title">Card Title</h5>
-                </div>
-                <div>
-                  <p class="mb-0">08/26</p>
-                </div>
-              </div>
-              <div class="card-body p-0">
-                <img
-                  src="images/image-2.jpg"
-                  class="img-fluid"
-                  alt="Sample Image"
-                />
-              </div>
-              <div class="card-footer bg-transparent">
-                <h6>204 Likes</h6>
-                <p class="card-text">Some text in the footer.</p>
-              </div>
-            </div>
-
-            <div
-              class="card mx-auto rounded"
-              style="max-width: 50%; margin-bottom: 20px"
-            >
-              <div
-                class="card-header d-flex justify-content-between align-items-center bg-transparent"
-              >
-                <div>
-                  <h5 class="card-title">Card Title</h5>
-                </div>
-                <div>
-                  <p class="mb-0">08/26</p>
-                </div>
-              </div>
-              <div class="card-body p-0">
-                <img
-                  src="images/image-3.jpg"
-                  class="img-fluid"
-                  alt="Sample Image"
-                />
-              </div>
-              <div class="card-footer bg-transparent">
-                <h6>204 Likes</h6>
-                <p class="card-text">Some text in the footer.</p>
-              </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn bg-success text-white">
+                Publish
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <!-- Dropdown menu -->
+    <div class="p-2">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" href="#">Profile</a>
+        </li>
+          <li>
+            <a class="dropdown-item" href="#">Accessibility</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Privacy and Data</a>
+          </li>
+          <div class="dropdown-divider"></div>
+          <li>
+            <a class="dropdown-item text-danger" href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mt-3">
+    <!-- Tab Pills -->
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <button class="nav-link" type="submit" id="pills-feed-tab" data-bs-target="#pills-feed" data-bs-toggle="pill">
+          <i class="fa-solid fa-table-cells"></i>
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link active" type="submit" id="pills-photo-tab" data-bs-target="#pills-photo"
+          data-bs-toggle="pill">
+          <i class="fa-solid fa-square"></i>
+        </button>
+      </li>
+    </ul>
+    <!-- Tab Panes -->
+    <div class="tab-content">
+      <!-- Feed tab -->
+      <div class="tab-pane fade" id="pills-feed" role="tabpanel" aria-labelledby="pills-feed-tab">
+        <div class="container-fluid g-1 mt-4">
+          <div class="row g-1 mt-4">
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-1.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-2.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-3.jpg" alt="image1" />
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid g-1 mt-4">
+          <div class="row g-1 mt-4">
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-1.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-2.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-3.jpg" alt="image1" />
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid g-1 mt-4">
+          <div class="row g-1 mt-4">
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-1.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-2.jpg" alt="image1" />
+            </div>
+            <div class="col-4">
+              <img class="img-fluid" src="./images/image-3.jpg" alt="image1" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Grid tab -->
+      <div class="tab-pane fade active show" id="pills-photo" role="tabpanel" aria-labelledby="pills-photo-tab">
+        <div class="container-fluid g-1 mt-4">
+          <div class="card mx-auto rounded" style="max-width: 50%; margin-bottom: 20px">
+            <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-1.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
+          </div>
+          <div class="card mx-auto rounded" style="max-width: 50%; margin-bottom: 20px">
+            <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-2.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
+          </div>
+          <div class="card mx-auto rounded" style="max-width: 50%; margin-bottom: 20px">
+            <div class="card-header d-flex justify-content-between align-items-center bg-transparent">
+              <div>
+                <h5 class="card-title">Card Title</h5>
+              </div>
+              <div>
+                <p class="mb-0">08/26</p>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <img src="images/image-3.jpg" class="img-fluid" alt="Sample Image" />
+            </div>
+            <div class="card-footer bg-transparent">
+              <h6>204 Likes</h6>
+              <p class="card-text">Some text in the footer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
 </html>
